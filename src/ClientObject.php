@@ -54,7 +54,8 @@ abstract class ClientObject
     {
         $path = $this->resourcePath;
         if(!isset($path)){
-            $path = strtolower(end(explode("\\",get_class($this))));
+            $explode = explode("\\",get_class($this));
+            $path = strtolower(end($explode));
         }
         if(isset($this->parentResourcePath)) {
             $path = $this->parentResourcePath . "/" . $path;
